@@ -5,7 +5,7 @@ metadata:
 spec:
   acme:
     email: prod-ct@mikenabhan.com
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: prod-issuer-account-key
     solvers:
