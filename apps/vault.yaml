@@ -13,9 +13,8 @@ spec:
     chart: vault
     targetRevision: 0.25.0
     helm:
-      releaseName: vault
       valueFiles: 
-        - apps/vault/values.yaml
+        - $values/apps/vault/values.yaml
   - repoURL: git@github.com:mikenabhan/argocd.git
     targetRevision: main
     ref: values
