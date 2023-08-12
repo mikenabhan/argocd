@@ -1,0 +1,4 @@
+global:
+  enabled: true
+injector:
+  enabled: true
