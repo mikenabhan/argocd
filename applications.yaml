@@ -9,7 +9,7 @@ spec:
    namespace: default
    server: https://kubernetes.default.svc
  source:
-   repoURL: https://github.com/nabhanxyz/argocd
+   repoURL: git@github.com:mikenabhan/argocd.git
    targetRevision: HEAD
    path: apps
  syncPolicy:
