@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: stage-cert
+  namespace: default
+spec:
+  # Secret names are always required.
+  secretName: stage-cert-tls
+  dnsNames:
+    - stage-cert-test.mikenabhan.com
+  issuerRef:
+    name: stage
+    kind: ClusterIssuer
+    group: cert-manager.io

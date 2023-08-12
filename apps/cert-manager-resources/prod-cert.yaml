@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prod-cert
+  namespace: default
+spec:
+  # Secret names are always required.
+  secretName: prod-cert-tls
+  dnsNames:
+    - prod-cert-test.mikenabhan.com
+  issuerRef:
+    name: prod
+    kind: ClusterIssuer
+    group: cert-manager.io
