@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   destination:
-    namespace: argocd
+    namespace: vault
     server: https://kubernetes.default.svc
   sources:
   - repoURL: https://helm.releases.hashicorp.com
