@@ -9,7 +9,7 @@ spec:
     namespace: argo
     server: https://kubernetes.default.svc
   sources:
-  - repoURL: https://helm.releases.hashicorp.com
+  - repoURL: https://argoproj.github.io/argo-helm
     chart: argo-workflows
     targetRevision: 0.32.2
     helm:
