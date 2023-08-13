@@ -1,0 +1,5 @@
+crds:
+  # -- Install and upgrade CRDs
+  install: false
+  # -- Keep CRDs on chart uninstall
+  keep: true
