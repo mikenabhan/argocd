@@ -16,3 +16,14 @@ repoServer:
 
 applicationSet:
   replicaCount: 1
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "192.168.5.31"
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: "prod"
+  hosts:
+    - argocd.mikenabhan.com
