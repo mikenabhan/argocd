@@ -17,6 +17,8 @@ server:
       external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
       kubernetes.io/tls-acme: "true"
       cert-manager.io/cluster-issuer: "prod"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     hosts:
       - argocd.mikenabhan.com
     tls:
