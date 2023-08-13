@@ -1,3 +1,5 @@
+provider: cloudflare
+
 cloudflare:
   secretName: external-dns
   proxied: true
