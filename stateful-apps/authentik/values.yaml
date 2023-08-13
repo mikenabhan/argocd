@@ -25,8 +25,8 @@ postgresql:
 redis:
   enabled: true
 
-envValueFrom: {}
- AUTHENTIK_SECRET_KEY:
-   secretKeyRef:
-     key: AUTHENTIK_SECRET_KEY
-     name: authentik-env
+envValueFrom:
+  AUTHENTIK_SECRET_KEY:
+    secretKeyRef:
+      key: AUTHENTIK_SECRET_KEY
+      name: authentik-env
