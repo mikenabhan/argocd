@@ -19,6 +19,10 @@ server:
       cert-manager.io/cluster-issuer: "prod"
     hosts:
       - argocd.mikenabhan.com
+    tls:
+      - secretName: argocd-le-cert
+        hosts:
+          - argocd.mikenabhan.com
 
 repoServer:
   autoscaling:
