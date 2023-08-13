@@ -1,0 +1,17 @@
+cloudflare:
+  secretName: external-dns
+  proxied: true
+
+# resources:
+#   ## Example:
+#   ## limits:
+#   ##    cpu: 50m
+#   ##    memory: 50Mi
+#   ##
+#   limits: {}
+#   ## Examples:
+#   ## requests:
+#   ##    cpu: 10m
+#   ##    memory: 50Mi
+#   ##
+
