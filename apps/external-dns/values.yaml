@@ -17,3 +17,4 @@ cloudflare:
 #   ##    memory: 50Mi
 #   ##
 
+policy: sync
