@@ -1,3 +1,0 @@
-resources:
-# - https://github.com/argoproj/argo-workflows/manifests/base/crds/full?ref=v3.4.9
-- https://github.com/argoproj/argo-helm/tree/main/charts/argo-workflows/templates/crds?argo-workflows-0.32.2
