@@ -3,3 +3,20 @@ crds:
   install: true
   # -- Keep CRDs on chart uninstall
   keep: true
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      external-dns.alpha.kubernetes.io/target: "192.168.5.31"
+      external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+      kubernetes.io/tls-acme: "true"
+      cert-manager.io/cluster-issuer: "prod"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    hosts:
+      - argo-workflows.mikenabhan.com
+    tls:
+      - secretName: argo-workflows-le-cert
+        hosts:
+          - argo-workflows.mikenabhan.com
