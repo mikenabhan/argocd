@@ -17,7 +17,7 @@ spec:
       parameters:
         - name: installCRDs
           value: "true"
-  - repoURL: git@github.com:mikenabhan/argocd.git
+  - repoURL: https://github.com/mikenabhan/argocd.git
     targetRevision: main
     ref: values
   syncPolicy:
