@@ -14,7 +14,7 @@ spec:
     targetRevision: 1.5.1
     helm:
       releaseName: longhorn
-  - repoURL: git@github.com:mikenabhan/argocd.git
+  - repoURL: https://github.com/mikenabhan/argocd.git
     targetRevision: main
     ref: values
   syncPolicy:

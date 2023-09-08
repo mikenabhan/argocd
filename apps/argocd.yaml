@@ -16,7 +16,7 @@ spec:
       releaseName: argo
       valueFiles: 
         - $values/apps/argocd/values.yaml
-  - repoURL: git@github.com:mikenabhan/argocd.git
+  - repoURL: https://github.com/mikenabhan/argocd.git
     targetRevision: main
     ref: values
   syncPolicy:
