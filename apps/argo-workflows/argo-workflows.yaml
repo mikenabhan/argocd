@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argo-workflows
-  namespace: argocd      
+  namespace: argocd
 spec:
   project: default
   destination:
@@ -11,10 +11,10 @@ spec:
   sources:
   - repoURL: https://argoproj.github.io/argo-helm
     chart: argo-workflows
-    targetRevision: 0.32.2
+    targetRevision: 0.40.10
     helm:
-      valueFiles: 
-        - $values/apps/argo-workflows/values.yaml
+      valueFiles:
+      - $values/apps/argo-workflows/values.yaml
   - repoURL: https://github.com/mikenabhan/argocd.git
     targetRevision: main
     ref: values
@@ -24,7 +24,7 @@ spec:
       selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
       allowEmpty: false # Allows deleting all application resources during automatic syncing ( false by default ).   
     syncOptions:
-      - CreateNamespace=true
+    - CreateNamespace=true
   ignoreDifferences:
   - group: admissionregistration.k8s.io
     kind: MutatingWebhookConfiguration
