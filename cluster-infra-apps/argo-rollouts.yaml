@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: infra-argo-rollouts
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: lke-dev
+        url: https://1235be22-51d7-4de1-9caf-3d25f32b34ac.us-ord-1.linodelke.net:443
+        # - cluster: engineering-prod
+        #   url: https://2.4.6.8
+        # - cluster: finance-preprod
+        #   url: https://9.8.7.6
+  template:
+    metadata:
+      name: '{{cluster}}-argo-rollouts'
+    spec:
+      project: default
+      destination:
+        namespace: argo-rollouts
+        server: '{{url}}'
+      sources:
+      - repoURL: https://argoproj.github.io/argo-helm
+        chart: argo-rollouts
+        targetRevision: 2.34.2
+        helm:
+          valueFiles:
+          - $values/cluster-infra-apps/argo-rollouts/{{cluster}}-values.yaml
+      - repoURL: https://github.com/mikenabhan/argocd.git
+        targetRevision: main
+        ref: values
+      syncPolicy:
+        automated:
+          prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+          selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+          allowEmpty: false # Allows deleting all application resources during automatic syncing ( false by default ).   
+        syncOptions:
+        - CreateNamespace=true
+
