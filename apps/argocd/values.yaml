@@ -20,11 +20,11 @@ server:
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
       nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     hosts:
-      - argocd.mikenabhan.com
+    - argocd.mikenabhan.com
     tls:
-      - secretName: argocd-le-cert
-        hosts:
-          - argocd.mikenabhan.com
+    - secretName: argocd-le-cert
+      hosts:
+      - argocd.mikenabhan.com
 
 repoServer:
   autoscaling:
@@ -34,3 +34,9 @@ repoServer:
 applicationSet:
   replicaCount: 1
 
+configs:
+  cm:
+    accounts.mike: apikey, login
+  rbac:
+    policy.csv: |
+      g, mike, role:admin
