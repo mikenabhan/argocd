@@ -15,7 +15,7 @@ spec:
         #   url: https://9.8.7.6
   template:
     metadata:
-      name: 'ingress-nginx'
+      name: '{{cluster}}-ingress-nginx'
     spec:
       project: default
       destination:
@@ -26,6 +26,7 @@ spec:
         chart: ingress-nginx
         targetRevision: 4.9.1
         helm:
+          releasename: ingress-nginx
           valueFiles:
           - $values/cluster-infra-apps/ingress-nginx/{{cluster}}-values.yaml
       - repoURL: https://github.com/mikenabhan/argocd.git
