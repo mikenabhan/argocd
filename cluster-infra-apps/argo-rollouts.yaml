@@ -3,31 +3,30 @@ kind: ApplicationSet
 metadata:
   name: infra-argo-rollouts
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   generators:
-  - list:
-      elements:
-      - cluster: lke-dev
-        url: https://1235be22-51d7-4de1-9caf-3d25f32b34ac.us-ord-1.linodelke.net:443
-        # - cluster: engineering-prod
-        #   url: https://2.4.6.8
-        # - cluster: finance-preprod
-        #   url: https://9.8.7.6
+  - clusters:
+      selector:
+        matchLabels:
+          environment: "dev"
   template:
     metadata:
-      name: '{{cluster}}-argo-rollouts'
+      name: '{{name}}-argo-rollouts'
     spec:
       project: default
       destination:
         namespace: argo-rollouts
-        server: '{{url}}'
+        server: '{{server}}'
       sources:
       - repoURL: https://argoproj.github.io/argo-helm
         chart: argo-rollouts
         targetRevision: 2.34.2
         helm:
+          releaseName: argo-rollouts
           valueFiles:
-          - $values/cluster-infra-apps/argo-rollouts/{{cluster}}-values.yaml
+          - $values/cluster-infra-apps/argo-rollouts/{{name}}-values.yaml
       - repoURL: https://github.com/mikenabhan/argocd.git
         targetRevision: main
         ref: values
