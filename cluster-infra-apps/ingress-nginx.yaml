@@ -26,7 +26,7 @@ spec:
         chart: ingress-nginx
         targetRevision: 4.9.1
         helm:
-          releasename: ingress-nginx
+          releaseName: ingress-nginx
           valueFiles:
           - $values/cluster-infra-apps/ingress-nginx/{{cluster}}-values.yaml
       - repoURL: https://github.com/mikenabhan/argocd.git
