@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bootstrap-resources
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          environment: "dev"
+  template:
+    metadata:
+      name: '{{name}}-bootstrap-resources'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/mikenabhan/argocd.git
+        targetRevision: HEAD
+        path: cluster-infra-apps/bootstrap-resources
+      destination:
+        server: '{{server}}'
+        namespace: guestbook
