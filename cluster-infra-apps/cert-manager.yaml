@@ -27,6 +27,9 @@ spec:
           releaseName: cert-manager
           valueFiles:
           - $values/cluster-infra-apps/cert-manager/{{name}}-values.yaml
+          parameters:
+          - name: installCRDs
+            value: "true"
       - repoURL: https://github.com/mikenabhan/argocd.git
         targetRevision: main
         ref: values
