@@ -26,7 +26,7 @@ spec:
         helm:
           releaseName: argo-rollouts
           valueFiles:
-          - $values/cluster-infra-apps/argo-rollouts/{{metadata.labels.cloud}}-{{metadata.labels.environment}}-values.yaml-values.yaml
+          - $values/cluster-infra-apps/argo-rollouts/{{metadata.labels.cloud}}-{{metadata.labels.environment}}-values.yaml
       - repoURL: https://github.com/mikenabhan/argocd.git
         targetRevision: main
         ref: values
